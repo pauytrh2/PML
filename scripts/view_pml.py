@@ -4,12 +4,11 @@ from os import makedirs as mkdir, path, system as run
 from shutil import rmtree as rmdir
 from time import sleep
 import webbrowser
+from pauyerror import PauyError
 
-try:
-    pml_file = argv[1]
-except IndexError:
-    print("PauyError: no input file")
-    exit()
+if len(argv) < 2:
+    raise PauyError("Please provide an input file UwU")
+pml_file = argv[1]
 
 with open(pml_file, "r") as file:
     content = file.read()
